@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     name = user["first_name"] + " " + user["last_name"]
     {"name" => name, "facebook_id" => facebook_id}
   end
+
   def current_user
     facebook_info = get_facebook_info
     facebook_id = facebook_info["facebook_id"]
