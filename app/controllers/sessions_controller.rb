@@ -7,8 +7,4 @@ class SessionsController < ApplicationController
     redirect_to session[:access_token] ? users_path : root_path
 
   end
-
-  def new
-
-  end
 end

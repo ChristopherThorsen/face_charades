@@ -1,36 +1,14 @@
 class UsersController < ApplicationController
   def create
-    graph = Koala::Facebook::API.new(session[:access_token])
-    user = graph.get_object("me")
-    facebook_id = user["id"]
-    name = user["first_name"] + " " + user["last_name"]
-    user = User.find_by(facebook_id: facebook_id)
-    if user
-      user.update(name: name)
+    facebook_info = get_facebook_info
+    name = facebook_info["name"]
+    facebook_id = facebook_info[facebook_id]
+    if current_user
+      current_user.update(name: name)
     else
       User.create(facebook_id: facebook_id, name: name)
     end
 
     redirect_to dashboard_path
-  end
-
-  def edit
-    @current_user = current_user
-  end
-
-  def update
-    user = User.find(params[:id])
-    if user.update(user_params)
-      redirect_to [:dashboard]
-    else
-      render :edit
-    end
-
-  end
-
-  def user_params
-    params.require(:user).permit(
-      :name
-    )
   end
 end
