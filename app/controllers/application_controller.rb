@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  def current_user
+    graph = Koala::Facebook::API.new(session[:access_token])
+    user = graph.get_object("me")
+    facebook_id = user["id"]
+    
+    User.find_by(facebook_id: facebook_id)
+  end
 end
