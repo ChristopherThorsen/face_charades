@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  def new
+    @login_request_to_facebook = Koala::Facebook::OAuth.new(ENV.fetch('FACEBOOK_APP_ID'), ENV.fetch('FACEBOOK_SECRET'), sessions_url).url_for_oauth_code
+  end
+
   def create
     access_token = get_access_token
     user = FacebookUser.new(access_token).find_or_create
@@ -7,9 +11,6 @@ class SessionsController < ApplicationController
     redirect_to :dashboard
   end
 
-  def new
-    @login_request_to_facebook = Koala::Facebook::OAuth.new(ENV.fetch('FACEBOOK_APP_ID'), ENV.fetch('FACEBOOK_SECRET'), sessions_url).url_for_oauth_code
-  end
   private
 
   def get_access_token
