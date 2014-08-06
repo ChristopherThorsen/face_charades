@@ -1,9 +1,9 @@
-class FacebookUser
+class UserCreator
   def initialize(access_token)
     @access_token = access_token
   end
 
-  def find_or_create
+  def find_or_create_from_facebook
     User.where(facebook_id: facebook_id).first_or_create(user_params)
   end
 

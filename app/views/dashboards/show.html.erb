@@ -1,1 +1,7 @@
-signed in as: <%= @user.name %> <%= link_to "sign out", :session, method: :delete %>
+signed in as: <%= link_to @user.name, @user %> <%= link_to "sign out", :session, method: :delete %>
+<ul>
+  <h3> Your Facebook Friends who are already playing </h3>
+  <% @friends.each do |friend| %>
+    <li><%= link_to friend.name, friend %></li>
+  <% end %>
+</ul>

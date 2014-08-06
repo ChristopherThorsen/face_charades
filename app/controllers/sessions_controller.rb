@@ -5,8 +5,11 @@ class SessionsController < ApplicationController
 
   def create
     access_token = get_access_token
-    user = FacebookUser.new(access_token).find_or_create
+    session[:access_token] = access_token
+    user = UserCreator.new(session[:access_token]).find_or_create_from_facebook
     session[:facebook_id] = user.facebook_id
+    friends = FacebookUser.new(current_user, session[:access_token]).find_friends
+    session[:friends] = friends
 
     redirect_to :dashboard
   end
