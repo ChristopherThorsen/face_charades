@@ -11,6 +11,12 @@ class SessionsController < ApplicationController
     redirect_to :dashboard
   end
 
+  def destroy
+    reset_session
+
+    redirect_to root_path
+  end
+
   private
 
   def get_access_token
