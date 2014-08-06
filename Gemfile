@@ -10,5 +10,5 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
-gem 'dotenv-rails', :groups => [:development]
+gem 'dotenv-rails', :group: :development
 gem 'koala', '~> 1.10.0rc'
