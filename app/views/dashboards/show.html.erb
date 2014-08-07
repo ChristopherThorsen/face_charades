@@ -1,24 +1,49 @@
-signed in as: <%= link_to current_user.name, current_user %> <%= link_to "sign out", :session, method: :delete %>
-<ul>
-  <h3> Your Facebook Friends who are already playing </h3>
-  <% @facebook_friends.each do |facebook_friend| %>
-    <li>
-      <%= link_to facebook_friend.name, facebook_friend %>
-      <% if current_user.friends?(facebook_friend) %>
-        <p>Friends</p>
-      <% end %>
+<div class="left-container">
+  <div class="user-info-dashboard">
+    signed in as: <%= link_to current_user.name, current_user %> | <%= link_to "sign out", :session, method: :delete %>
+  </div>
+  <div class="friends-dashboard">
+    <h3>Friends</h3>
+    <ul>
+      <% @facebook_friends.each do |facebook_friend| %>
+        <li>
+          <%= link_to facebook_friend.name, facebook_friend %>
+          <% if current_user.friends?(facebook_friend) %>
+            <p>Friends</p>
+          <% end %>
 
-      <% if current_user.pending_friend_request_to?(facebook_friend) %>
-        <p> request sent... </p>
-      <% end %>
+          <% if current_user.pending_friend_request_to?(facebook_friend) %>
+            <p> request sent... </p>
+          <% end %>
 
-      <% if current_user.can_friend?(facebook_friend) %>
-        <% if current_user.received_friend_request_from?(facebook_friend) %>
-          <%= button_to "Accept friend", [facebook_friend, :accepted_friendship] %>
-        <% else %>
-          <%= button_to "Send Friend Request", [facebook_friend, :friendship_request] %>
-        <% end %>
+          <% if current_user.can_friend?(facebook_friend) %>
+            <% if current_user.received_friend_request_from?(facebook_friend) %>
+              <%= button_to "Accept friend", [facebook_friend, :accepted_friendship] %>
+            <% else %>
+              <%= button_to "Send Friend Request", [facebook_friend, :friendship_request] %>
+            <% end %>
+          <% end %>
+        </li>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+    </ul>
+  </div>
+  <div class="current-rounds-dashboard">
+    <h3>Current Rounds</h3>
+    <ul>
+      <% @rounds.each do |round| %>
+        <li><%= link_to "Round #{round.id}", round %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="statistics-dashboard">
+    STATS GO IN HERE
+  </div>
+</div>
+
+<div class="right-container" >
+  <div class="game-dashboard">
+    <%= button_to "New Round", [@card, @round] %>
+  </div>
+</div>
+
+

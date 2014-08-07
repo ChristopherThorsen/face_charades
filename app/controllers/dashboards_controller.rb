@@ -1,5 +1,8 @@
 class DashboardsController < ApplicationController
   def show
+    @round = Round.new
+    @rounds = current_user.rounds
+    @card = Card.all.sample
     @facebook_friends = users_for_facebook_friends
   end
 

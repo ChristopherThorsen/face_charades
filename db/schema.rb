@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807140602) do
+ActiveRecord::Schema.define(version: 20140808171030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cards", force: true do |t|
+    t.string   "prompt",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "friendships", force: true do |t|
     t.integer  "friender_id",                 null: false
@@ -27,6 +33,25 @@ ActiveRecord::Schema.define(version: 20140807140602) do
   add_index "friendships", ["friendee_id"], name: "index_friendships_on_friendee_id", using: :btree
   add_index "friendships", ["friender_id", "friendee_id"], name: "friends", unique: true, using: :btree
   add_index "friendships", ["friender_id"], name: "index_friendships_on_friender_id", using: :btree
+
+  create_table "guesses", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "round_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: true do |t|
+    t.string  "url",      null: false
+    t.integer "round_id", null: false
+  end
+
+  create_table "rounds", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "card_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "name",        default: "", null: false

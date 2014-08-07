@@ -1,0 +1,13 @@
+<div>
+  <%= link_to "Return to Dashboard", :dashboard %>
+</div>
+<h3><%= @card.prompt %></h3>
+<% @photos.each do |photo| %>
+  <%= image_tag photo.url %> 
+<% end %>
+<h2>Friends the game was sent to</h2>
+<ul>
+  <% @guessers.each do |guesser| %>
+    <li><%= link_to guesser.name, guesser %></li>
+  <% end %>
+</ul>

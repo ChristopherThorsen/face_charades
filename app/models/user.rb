@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :friendships, foreign_key: :friendee_id, dependent: :destroy
   has_many :accepted_friendships, -> { where(accepted: true) }, foreign_key: :friendee_id, class_name: "Friendship", dependent: :destroy
   has_many :friends, through: :accepted_friendships, source: :friender
+  has_many :rounds
+  has_many :guesses
 
   validates :name, presence: true
   validates :facebook_id, presence: true
