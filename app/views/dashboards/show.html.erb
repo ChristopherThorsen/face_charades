@@ -30,8 +30,8 @@
   <div class="current-rounds-dashboard">
     <h3>Current Rounds</h3>
     <ul>
-      <% @rounds.each do |round| %>
-        <li><%= link_to "Round #{round.id}", round %></li>
+      <% @pending_guesses.each do |guess| %>
+        <li><%= link_to guess.user.name, guess %></li>
       <% end %>
     </ul>
   </div>
