@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   has_many :friends, through: :accepted_friendships, source: :friender
   has_many :rounds
   has_many :guesses
-  has_many :pending_guesses, through: :guesses, source: :round
 
   validates :name, presence: true
   validates :facebook_id, presence: true
@@ -19,6 +18,10 @@ class User < ActiveRecord::Base
 
   def friends_with?(user)
     friends.include?(user)
+  end
+
+  def pending_guesses
+    guesses.pending
   end
 
   def sent_friend_request_to?(user)

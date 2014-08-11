@@ -4,7 +4,11 @@
 <% @photos.each do |photo| %>
   <%= image_tag photo.url %> 
 <% end %>
-<h3><%= @hidden_answer %></h3>
+<h2><%= @hidden_answer %></h2>
+<%= form_for [@round, @guess] do |form| %>
+  <%= text_field_tag :answer, value = nil, placeholder: "what face are they making?" %>
+  <%= form.submit "Enter Guess" %>
+<% end %>
 <h2>Friends the game was sent to</h2>
 <ul>
   <% @guessers.each do |guesser| %>

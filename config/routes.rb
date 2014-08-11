@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resource :accepted_friendship, only: [:create]
   end
   resources :rounds, only: [:show] do
-    resources :guesses, only:[:new, :create]
+    resources :guesses, only:[:new, :create, :update]
     resources :photos, only:[:new, :create]
   end
 

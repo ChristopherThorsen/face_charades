@@ -31,7 +31,7 @@
     <h3>Current Rounds</h3>
     <ul>
       <% @pending_guesses.each do |guess| %>
-        <li><%= link_to guess.user.name, guess %></li>
+        <li><%= link_to guess.round.user.name, guess.round %></li>
       <% end %>
     </ul>
   </div>
