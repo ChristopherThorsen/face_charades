@@ -1,7 +1,14 @@
+<script>
+  useWebcam();
+</script>
 <div> Your Word is: </div>
 <h2><%= @card.prompt %></h2>
+
+<video autoplay="true" id="videoElement"></video>
+<button id="take-photo"> Take Photo </button>
+<canvas id="canvas"></canvas>
 <%= form_for [@round, @photo] do |form| %>
   <%= form.label :url %>
-  <%= form.text_field :url %>
+  <%= form.hidden_field :url %>
   <%= form.submit "Send Photo" %>
 <% end %>
