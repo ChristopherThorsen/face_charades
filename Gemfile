@@ -15,3 +15,4 @@ gem 'koala', '~> 1.10.0rc'
 gem 'bourbon'
 gem 'bitters'
 gem 'neat'
+gem 'rails_12factor', group: :production
