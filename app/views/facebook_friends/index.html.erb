@@ -1,0 +1,19 @@
+<div class="header">
+  <div class="left-third">
+    <%= button_to "New Round", [@card, @round] %>
+  </div>
+  <div class="middle">
+    <h1> Facebook Friends </h1>
+  </div>
+  <div class="right-third">
+    <%= link_to "friends", :users %>
+  </div>
+</div>
+
+<div class="friends-dashboard">
+  <ul>
+    <% @facebook_friends.each do |friend| %>
+      <%= render "facebook_friends", facebook_friend: friend %>
+    <% end %>
+  </ul>
+</div>

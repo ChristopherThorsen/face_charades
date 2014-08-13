@@ -1,7 +1,28 @@
-<%= link_to "Back to Dashboard", :dashboard %>
-<h2><%= @user.name %></h2>
-<h3> Stats </h3>
-<div> games played: </div>
-<div> games won: </div>
-<div> win %: </div>
-<div> coins earned: </div>
+<div class="header">
+  <div class="left-third">
+    <%= button_to "New Round", [@card, @round] %>
+  </div>
+  <div class="middle">
+    <h1>Stats</h1>
+  </div>
+  <div class="right-third">
+    <%= link_to "Friends", :users %>
+  </div>
+</div>
+<div class="statistics-dashboard">
+  <div>
+    Guesses Made: <%= current_user.total_games_received %>
+  </div>
+  <div>
+    Correct Guesses: <%= current_user.total_received_games_won %>
+  </div>
+  <div>
+    Guess %: <%= current_user.total_win_percentage %>
+  </div>
+  <div>
+    Games Sent: <%= current_user.total_games_sent %>
+  </div>
+  <div>
+    Sent game Wins: <%= current_user.total_wins_on_games_sent %>
+  </div>
+</div>

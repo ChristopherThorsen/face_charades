@@ -9,4 +9,8 @@ class Guess < ActiveRecord::Base
   def mark_complete
     update(complete: true)
   end
+
+  def self.sort_by_time
+    order("created_at DESC")
+  end
 end

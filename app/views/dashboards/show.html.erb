@@ -1,64 +1,20 @@
-<div class="left-container">
-  <div class="user-info-dashboard">
-    signed in as: <%= link_to current_user.name, current_user %> | <%= link_to "sign out", :session, method: :delete %>
+  <div class="header">
+    <div class="left-third">
+      <%= button_to "New Round", [@card, @round] %>
+    </div>
+    <div class="middle">
+      <h1> Face-Charades </h1>
+    </div>
+    <div class="right-third">
+      <%= link_to "Friends", :users %>
+    </div>
   </div>
-  <div class="friends-dashboard">
-    <h3>Friends</h3>
+  <div class="current-rounds-dashboard">
     <ul>
-      <% @facebook_friends.each do |facebook_friend| %>
-        <li>
-          <%= link_to facebook_friend.name, facebook_friend %>
-          <% if current_user.friends?(facebook_friend) %>
-            <p>Friends</p>
-          <% end %>
-
-          <% if current_user.pending_friend_request_to?(facebook_friend) %>
-            <p> request sent... </p>
-          <% end %>
-
-          <% if current_user.can_friend?(facebook_friend) %>
-            <% if current_user.received_friend_request_from?(facebook_friend) %>
-              <%= button_to "Accept friend", [facebook_friend, :accepted_friendship] %>
-            <% else %>
-              <%= button_to "Send Friend Request", [facebook_friend, :friendship_request] %>
-            <% end %>
-          <% end %>
+      <% @pending_guesses.each do |guess| %>
+        <li><%= link_to guess.round.user.name, guess.round %>
+        <span> ...<%= time_ago_in_words guess.created_at %> ago</span>
         </li>
       <% end %>
     </ul>
   </div>
-  <div class="current-rounds-dashboard">
-    <h3>Current Rounds</h3>
-    <ul>
-      <% @pending_guesses.each do |guess| %>
-        <li><%= link_to guess.round.user.name, guess.round %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="statistics-dashboard">
-    <div>
-      Guesses Made: <%= current_user.total_games_received %>
-    </div>
-    <div>
-      Correct Guesses: <%= current_user.total_received_games_won %>
-    </div>
-    <div>
-      Guess %: <%= current_user.total_win_percentage %>
-    </div>
-    <div>
-      Games Sent: <%= current_user.total_games_sent %>
-    </div>
-    <div>
-      Sent game Wins: <%= current_user.total_wins_on_games_sent %>
-    </div>
-  </div>
-
-</div>
-
-<div class="right-container" >
-  <div class="game-dashboard">
-    <%= button_to "New Round", [@card, @round] %>
-  </div>
-</div>
-
-

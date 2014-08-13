@@ -1,0 +1,17 @@
+  <li>
+    <% if ! current_user.friends?(facebook_friend) %>
+      <%= link_to facebook_friend.name, facebook_friend %>
+      <% if current_user.pending_friend_request_to?(facebook_friend) %>
+        <p> request sent... </p>
+      <% end %>
+
+      <% if current_user.can_friend?(facebook_friend) %>
+        <% if current_user.received_friend_request_from?(facebook_friend) %>
+          <%= button_to "Accept friend", [facebook_friend, :accepted_friendship] %>
+        <% else %>
+          <%= button_to "Send Friend Request", [facebook_friend, :friendship_request] %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </li>
+

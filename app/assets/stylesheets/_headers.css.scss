@@ -1,0 +1,40 @@
+$main-blue: #6F70B2;
+
+.header {
+  background-color: $main-blue;
+  border-bottom: solid gray;
+  height: 80px;
+  padding: 10px;
+  text-align: center;
+}
+
+.left-third {
+  @include span-columns(2);
+
+  text-align: left;
+}
+
+.middle {
+  @include span-columns(8);
+}
+
+.middle h1 {
+  color: $main-blue;
+  font-size: 3.5em;
+  text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
+}
+
+.right-third {
+  @include span-columns(2);
+}
+
+.right-third a {
+  color: white;
+  float: right;
+  margin-right: 20px;
+}
+

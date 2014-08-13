@@ -3,4 +3,8 @@ class Card < ActiveRecord::Base
     number_of_letters = prompt.length
     "_ " * number_of_letters
   end
+
+  def self.pick_random_card
+    order("RANDOM()").first
+  end
 end
