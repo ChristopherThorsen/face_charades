@@ -1,17 +1,15 @@
-<div>
-  <%= link_to "Return to Dashboard", :dashboard %>
-</div>
 <% @photos.each do |photo| %>
   <%= image_tag photo.url %> 
 <% end %>
-<h2><%= @hidden_answer %></h2>
-<%= form_for [@round, @guess] do |form| %>
-  <%= text_field_tag :answer, value = nil, placeholder: "what face are they making?" %>
-  <%= form.submit "Enter Guess" %>
+<div class= hidden-answer><%= @hidden_answer %></div>
+<h3>
+<% @letterbank.each do |letter| %>
+  <span class="letterbank"><%= letter %></span>
 <% end %>
-<h2>Friends the game was sent to</h2>
-<ul>
-  <% @guessers.each do |guesser| %>
-    <li><%= link_to guesser.name, guesser %></li>
+</h3>
+<div class="user-answer">
+  <%= form_for [@round, @guess] do |form| %>
+    <%= text_field_tag :answer, value = nil, placeholder: "what face are they making?" %>
+    <%= form.submit "Enter Guess" %>
   <% end %>
-</ul>
+</div>
