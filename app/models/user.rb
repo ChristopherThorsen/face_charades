@@ -47,4 +47,12 @@ class User < ActiveRecord::Base
   def total_win_percentage
     (total_received_games_won.to_f / total_games_received.to_f) * 100
   end
+
+  def increment_total_games_sent
+    update(total_games_sent: total_games_sent + 1)
+  end
+
+  def increment_total_wins_on_games_sent
+    update(total_wins_on_games_sent: total_wins_on_games_sent + 1)
+  end
 end
