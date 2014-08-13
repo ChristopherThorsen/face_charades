@@ -36,7 +36,14 @@
     </ul>
   </div>
   <div class="statistics-dashboard">
-    STATS GO IN HERE
+    <div>
+      Guesses Made: <%= current_user.total_games_received %>
+    </div>
+    <div>
+      Correct Guesses: <%= current_user.total_received_games_won %>
+    </div>
+    <div>
+      Win %: <%= current_user.total_win_percentage %>
   </div>
 </div>
 

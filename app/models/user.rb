@@ -35,4 +35,16 @@ class User < ActiveRecord::Base
   def received_friend_request_from?(user)
     Friendship.exists?(friender_id: user.id, friendee_id: id)
   end
+
+  def increment_games_received
+    update(total_games_received: total_games_received + 1)
+  end 
+
+  def increment_received_games_won
+    update(total_received_games_won: total_received_games_won + 1)
+  end 
+
+  def total_win_percentage
+    (total_received_games_won.to_f / total_games_received.to_f) * 100
+  end
 end

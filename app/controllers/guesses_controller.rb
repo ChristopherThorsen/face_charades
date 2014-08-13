@@ -18,8 +18,10 @@ class GuessesController < ApplicationController
     guess = Guess.find(params[:id])
     if guessed_correctly?
       guess.correct = true
+      guess.user.increment_received_games_won
     end
 
+    guess.user.increment_games_received
     guess.mark_complete
     set_flash_message(guess)
 
