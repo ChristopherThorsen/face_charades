@@ -5,7 +5,7 @@ class FacebookUser
   end
 
   def find_friends
-    graph.get_connections("me", "friends")
+    graph.get_connections(@user_facebook_id, "friends", api_version: 'v2.0')
   end
 
   private

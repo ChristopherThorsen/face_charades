@@ -11,6 +11,7 @@
 </div>
 
 <div class="friends-dashboard">
+  <%= @facebook_friends.inspect %>
   <ul>
     <% @facebook_friends.each do |friend| %>
       <%= render "facebook_friends", facebook_friend: friend %>
