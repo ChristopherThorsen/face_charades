@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :rounds, only: [:show] do
     resources :guesses, only:[:new, :create, :update]
     resources :photos, only:[:new, :create]
+    resource :result, only: [:show]
   end
 
   get "/sessions", to: "sessions#create"

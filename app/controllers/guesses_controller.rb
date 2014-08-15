@@ -26,7 +26,7 @@ class GuessesController < ApplicationController
     guess.mark_complete
     set_flash_message(guess)
 
-    redirect_to :dashboard
+    redirect_to [guess.round, :result]
   end
 
   private
