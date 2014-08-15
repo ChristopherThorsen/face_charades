@@ -3,7 +3,7 @@
     <%= button_to "New Round", [@card, @round] %>
   </div>
   <div class="middle">
-    <h1>Stats</h1>
+  <h1><%= @user.name %></h1>
   </div>
   <div class="right-third">
     <%= link_to "Friends", :users %>
@@ -11,18 +11,18 @@
 </div>
 <div class="statistics-dashboard">
   <div>
-    Guesses Made: <%= current_user.total_games_received %>
+    Guesses Made: <%= @user.total_games_received %>
   </div>
   <div>
-    Correct Guesses: <%= current_user.total_received_games_won %>
+    Correct Guesses: <%= @user.total_received_games_won %>
   </div>
   <div>
-    Guess %: <%= current_user.total_win_percentage %>
+    Guess %: <%= @user.total_win_percentage %>
   </div>
   <div>
-    Games Sent: <%= current_user.total_games_sent %>
+    Games Sent: <%= @user.total_games_sent %>
   </div>
   <div>
-    Sent game Wins: <%= current_user.total_wins_on_games_sent %>
+    Sent game Wins: <%= @user.total_wins_on_games_sent %>
   </div>
 </div>
