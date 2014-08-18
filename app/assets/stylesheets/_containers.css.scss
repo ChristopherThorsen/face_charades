@@ -1,6 +1,9 @@
+$light-gray: #F6F7FF;
+
 .outer-container {
   @include outer-container;
-
+  
+  background-color: $light-gray;
   border: solid gray;
   border-radius: 15px;
 }

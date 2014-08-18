@@ -10,6 +10,11 @@
     </div>
   </div>
   <div class="current-rounds-dashboard">
+    <% if @pending_guesses.empty? %>
+      <div>
+        sorry...there are no new games to play
+      </div>
+    <% end %>
     <ul>
       <% @pending_guesses.each do |guess| %>
         <li><%= link_to guess.round.user.name, guess.round %>
