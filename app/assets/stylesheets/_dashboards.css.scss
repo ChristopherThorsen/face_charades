@@ -36,8 +36,21 @@ $light-gray: #F6F7FF;
   margin-right: 50px;
 }
 
-.best-guesser-leaderboard {
+.leaderboard {
   @include span-columns(3);
   
   background-color: $light-gray;
+}
+
+.best-sender-leaderboard {
+  border: solid gray 1px;
+  background-color: #FFFFE5;
+  margin-top: 15px;
+  padding: 5px;
+}
+
+.best-guesser-leaderboard {
+  background-color: #FFFFE5;
+  border: solid gray 1px;
+  padding: 5px;
 }

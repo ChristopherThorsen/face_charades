@@ -18,14 +18,25 @@
       <% end %>
     </ul>
   </div>
-  <div class="best-guesser-leaderboard">
-    <div> best guessers </div>
-    <ul>
-      <% @leaders.each do |leader| %>
-        <li>
-          <%= leader.name %> ... <%= leader.total_received_games_won %>
-        </li>
-      <% end %>
-    </ul>
-
+  <div class = "leaderboard">
+    <div class="best-guesser-leaderboard">
+      <div> best guessers </div>
+      <ul>
+        <% @best_guessers.each do |leader| %>
+          <li>
+            <%= leader.name %> ... <%= leader.total_received_games_won %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="best-sender-leaderboard">
+      <div> best senders </div>
+      <ul>
+        <% @best_senders.each do |leader| %>
+          <li>
+            <%= leader.name %> ... <%= leader.total_wins_on_games_sent %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
