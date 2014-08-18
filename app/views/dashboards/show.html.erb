@@ -18,3 +18,14 @@
       <% end %>
     </ul>
   </div>
+  <div class="best-guesser-leaderboard">
+    <div> best guessers </div>
+    <ul>
+      <% @leaders.each do |leader| %>
+        <li>
+          <%= leader.name %> ... <%= leader.total_received_games_won %>
+        </li>
+      <% end %>
+    </ul>
+
+  </div>

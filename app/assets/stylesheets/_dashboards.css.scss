@@ -19,6 +19,8 @@ $light-gray: #F6F7FF;
 }
 
 .current-rounds-dashboard {
+  @include span-columns(9);
+  
   background-color: $light-gray;
 }
 
@@ -32,4 +34,10 @@ $light-gray: #F6F7FF;
   float: right;
   font-size: .5em;
   margin-right: 50px;
+}
+
+.best-guesser-leaderboard {
+  @include span-columns(3);
+  
+  background-color: $light-gray;
 }
