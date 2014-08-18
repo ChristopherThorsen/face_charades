@@ -1,6 +1,6 @@
 class Letterbank
-  TOTAL_LETTERS = 12
-  ALPHABET = %w{a b c d e f g h i j k l m n o p q r s t u v w x y z}
+  ALPHABET = %w{a a a b c d e e e f g h i i i j k l m n  o o o p q r s t u u u v  w x y z}
+  LETTERS_TO_ADD = 4
 
   def initialize(prompt)
     @letterbank = []
@@ -21,8 +21,7 @@ class Letterbank
   end
 
   def add_filler_letters_to_letterbank
-    letters_to_add = TOTAL_LETTERS - @prompt.length
-    letters_to_add.times do
+    LETTERS_TO_ADD.times do
       @letterbank << ALPHABET.sample
     end
   end
