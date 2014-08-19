@@ -1,7 +1,15 @@
+<script>
+  useLetterbank();
+</script>
+
 <% @photos.each do |photo| %>
   <%= image_tag photo.url %> 
 <% end %>
-<div class= hidden-answer><%= @hidden_answer %></div>
+<div class= hidden-answer>
+  <% @prompt.length.times do |i|%>
+    <span id="space-<%= i %>"> _ </span>
+  <% end %>
+</div>
 <h3>
 <% @letterbank.each do |letter| %>
   <span class="letterbank"><%= letter %></span>
