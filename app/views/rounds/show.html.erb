@@ -6,7 +6,7 @@
   <%= image_tag photo.url %> 
 <% end %>
 <div class= hidden-answer>
-  <% @prompt.length.times do |i|%>
+  <% @prompt.length.times do |i| %>
     <span id="space-<%= i %>"> _ </span>
   <% end %>
   <span class="reset"><%= link_to "Reset", @round %></span>
