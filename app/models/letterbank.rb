@@ -1,6 +1,6 @@
 class Letterbank
   ALPHABET = %w{a a a b c d e e e f g h i i i j k l m n  o o o p q r s t u u u v  w x y z}
-  LETTERS_TO_ADD = 4
+  LETTERS_TO_ADD = 3
 
   def initialize(prompt)
     @letterbank = []

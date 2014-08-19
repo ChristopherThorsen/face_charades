@@ -1,2 +1,6 @@
-<div> The word was <%= @round.card.prompt %></div>
+<div> The word was </div> 
+<h2><%= @round.card.prompt %></h2>
+<% @photos.each do |photo| %>
+  <%= image_tag photo.url %> 
+<% end %>
 <div><%= link_to "continue", :dashboard %></div>
