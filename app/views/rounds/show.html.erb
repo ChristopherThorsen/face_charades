@@ -9,6 +9,7 @@
   <% @prompt.length.times do |i|%>
     <span id="space-<%= i %>"> _ </span>
   <% end %>
+  <span class="reset"><%= link_to "Reset", @round %></span>
 </div>
 <h3>
 <% @letterbank.each do |letter| %>
@@ -17,7 +18,7 @@
 </h3>
 <div class="user-answer">
   <%= form_for [@round, @guess] do |form| %>
-    <%= text_field_tag :answer, value = nil, placeholder: "what face are they making?" %>
+    <%= hidden_field_tag :answer %>
     <%= form.submit "Enter Guess" %>
   <% end %>
 </div>
