@@ -36,7 +36,75 @@ faces = %w{
   shocked
   hammer
   drive
+  yawn
+  choke
+  sexy
+  beautiful
+  ugly
+  dance
+  pinch
+  whistle
+  sing
+  pray
+  think
+  punch
+  suprise
+  fear
+  contempt
+  desire
+  intelligent
+  sour
+  frizz
+  paint
+  pant
+  worry
+  plead
+  beg
+  criminal
+  tennis
+  shoot
+  bowl
+  calm
+  stupid
+  brave
+  breathe
+  pitch
+  church
+  bell
+  stretch
+  yell
+  drool
+  salute
+  attention
+  wave
+  smile
+  profile
+  read
+  stare
+  dead
+  scissors
+  pillow
+  baby
+  telescope
+  swim
+  ballet
+  snap
+  hug
+  embrace
+  sloppy
+  excersise
+  cough
+  drink
+  pain
+  point
+  stop
+  old
+  zombie
+  squint
+  flex
+  salute
 }
 faces.each do |face|
-  Card.create(prompt: face)
+  Card.find_or_create_by(prompt: face)
+  puts face
 end
