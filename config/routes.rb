@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :cards, only: [] do
     resources :rounds, only: [:new, :show, :create]
   end
-  resources :users, only: [:show, :index] do
+  resources :users, only: [:show, :index, :edit, :update] do
     resource :friendship_request, only: [:create]
     resource :accepted_friendship, only: [:create]
   end

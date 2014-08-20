@@ -10,4 +10,22 @@ class UsersController < ApplicationController
     @round = Round.new
     @card = Card.pick_random_card
   end
+
+  def edit
+    @round = Round.new
+    @card = Card.pick_random_card
+  end
+
+  def update
+    current_user.update(user_params)
+    redirect_to :dashboard
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(
+      :email
+    )
+  end
 end

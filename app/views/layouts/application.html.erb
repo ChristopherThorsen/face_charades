@@ -17,6 +17,14 @@
     <% end %>
     <%= yield %>
   </div>
-
+<% if current_user.email == "" %>
+  <div class="email-info">
+    If you want to be cool like the cool kids give us your <%= link_to "email", [:edit, current_user] %>
+  </div>
+<% else %>
+  <div>
+    Your email is set to <%= current_user.email %> <%= link_to "change", [:edit, current_user] %>
+  </div>
+<% end %>
 </body>
 </html>

@@ -1,0 +1,16 @@
+<div class="header">
+  <div class="left-third">
+    <%= button_to "New Round", [@card, @round] %>
+  </div>
+  <div class="middle">
+    <h1> Email Information </h1>
+  </div>
+  <div class="right-third">
+    <%= link_to "Friends", :users %>
+  </div>
+</div>
+<%= form_for current_user do |form|%>
+  <%= form.label :email %>
+  <%= form.text_field :email, placeholder: "enter your email here" %>
+  <%= form.submit "submit"%>
+<% end %>
