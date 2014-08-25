@@ -7,7 +7,5 @@ class UsersController < ApplicationController
 
   def index
     @friends = current_user.friends
-    @round = Round.new
-    @card = Card.pick_random_card
   end
 end

@@ -7,10 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to "Face-Charades", :dashboard %>
-  <% if current_user %>
-    signed in as: <%= link_to current_user.name, current_user %> | <%= link_to "sign out", :session, method: :delete %>
-<% end %>
+  <div class="login">
+    <% if current_user %>
+      signed in as: <%= link_to current_user.name, current_user %> | <%= link_to "sign out", :session, method: :delete %>
+    <% end %>
+  </div>
   <div class="outer-container">
     <% if flash[:notice] %>
       <h2><%= flash[:notice] %></h2>

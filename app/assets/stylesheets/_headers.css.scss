@@ -32,9 +32,18 @@ $main-blue: #6F70B2;
   @include span-columns(2);
 }
 
-.right-third a {
+.header a {
   color: white;
   float: right;
   margin-right: 20px;
 }
 
+.login {
+  margin-right: 40px;
+  text-align: right;
+}
+
+.facebook-login {
+  text-align: center;
+  font-size: 2.5em;
+}

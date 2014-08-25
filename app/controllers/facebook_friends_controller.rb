@@ -1,7 +1,5 @@
 class FacebookFriendsController < ApplicationController
   def index
-    @round = Round.new
-    @card = Card.pick_random_card
     @facebook_friends = users_for_facebook_friends
   end
 
