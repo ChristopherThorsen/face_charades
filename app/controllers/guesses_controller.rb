@@ -4,6 +4,10 @@ class GuessesController < ApplicationController
     @guess = Guess.new
   end
 
+  def show
+    @guess = Guess.find(params[:id])
+  end
+
   def create
     round = find_round
     user_ids = guess_params["user_id"]
@@ -16,11 +20,13 @@ class GuessesController < ApplicationController
 
   def update
     guess = Guess.find(params[:id])
+    guess.update(answer: params[:answer])
     if guessed_correctly?
       guess.correct = true
       current_user.increment_received_games_won
       guess.round.user.increment_total_wins_on_games_sent
     end
+
     guess.round.user.increment_total_games_sent
     current_user.increment_games_received
     guess.mark_complete
@@ -40,7 +46,9 @@ class GuessesController < ApplicationController
   end
 
   def guess_params
-    params.require(:guess).permit(user_id: [])
+    params.require(:guess).permit(
+      user_id: [],
+    )
   end
 
   def get_user_answer

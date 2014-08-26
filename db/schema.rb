@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813165203) do
+ActiveRecord::Schema.define(version: 20140826185937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140813165203) do
     t.datetime "updated_at",                 null: false
     t.boolean  "correct",    default: false, null: false
     t.boolean  "complete",   default: false, null: false
+    t.string   "answer"
   end
 
   create_table "photos", force: true do |t|
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 20140813165203) do
     t.integer  "total_received_games_won", default: 0,  null: false
     t.integer  "total_games_sent",         default: 0,  null: false
     t.integer  "total_wins_on_games_sent", default: 0,  null: false
+    t.string   "email",                    default: "", null: false
   end
 
 end

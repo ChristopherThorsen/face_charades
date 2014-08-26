@@ -6,6 +6,7 @@ class DashboardsController < ApplicationController
     @card = Card.pick_random_card
     @best_guessers = best_guesser_leaderboard
     @best_senders = best_sender_leaderboard
+    @last_guesses_on_games = Guess.last_guesses_on_games(current_user)
   end
 
   private
@@ -19,5 +20,4 @@ class DashboardsController < ApplicationController
     leader_ids = current_user.friend_ids + [current_user.id]
     User.where(id: [leader_ids]).order("total_wins_on_games_sent DESC").limit(7)
   end
-
 end
