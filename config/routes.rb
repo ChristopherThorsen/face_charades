@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :facebook_friends, only: [:index]
   resource :dashboard, only: [:show]
   resource :session, only: [:destroy]
+  resources :guesses, only: [:show]
   resources :cards, only: [] do
     resources :rounds, only: [:new, :show, :create]
   end

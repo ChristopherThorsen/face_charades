@@ -25,23 +25,29 @@
   </div>
   <div class = "leaderboard">
     <div class="best-guesser-leaderboard">
-      <div> best guessers </div>
+      <h5> best guessers </h5>
       <ul>
         <% @best_guessers.each do |leader| %>
           <li>
-            <%= leader.name %> ... <%= leader.total_received_games_won %>
+            <%= link_to leader.name, leader %> ... <%= leader.total_received_games_won %>
           </li>
         <% end %>
       </ul>
     </div>
     <div class="best-sender-leaderboard">
-      <div> best senders </div>
+      <h5> best senders </h5>
       <ul>
         <% @best_senders.each do |leader| %>
           <li>
-            <%= leader.name %> ... <%= leader.total_wins_on_games_sent %>
+            <%= link_to leader.name, leader %> ... <%= leader.total_wins_on_games_sent %>
           </li>
         <% end %>
       </ul>
+    </div>
+    <div class="recent-guesses">
+      <h5> Recent Guesses </h5>
+        <% @last_guesses_on_games.each do |guess| %>
+          <div><%= link_to guess.find_user, guess %> ... <%=time_ago_in_words guess.updated_at %> ago ... <%= guess.correct_status %></div>
+        <% end %>
     </div>
   </div>

@@ -1,0 +1,8 @@
+<div> The word was </div> 
+<h2><%= @guess.round.card.prompt %></h2>
+<div> <%=@guess.user.name %> guessed </div>
+<h3><%= @guess.answer %></h3>
+<% @guess.round.photos.each do |photo| %>
+  <%= image_tag photo.url %> 
+<% end %>
+<div><%= link_to "return to dashboard", :dashboard %></div>
